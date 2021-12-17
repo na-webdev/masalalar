@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Problems</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="wrapper">
+      <header
+        class="d-flex justify-content-center align-items-center flex-wrap text-center justify-content-md-between text-md-start">
+        <div class="logo-text me-3">
+          <h1 class="text-light">Masalalar</h1>
+          <p class="text-secondary">Dasturlashga oid turli qiyinlikdagi masalalar</p>
+        </div>
+        <div class="user-img-name d-flex align-items-center">
+          <i class="fa-regular fa-bell text-secondary"></i>
+          <img class="user-img rounded-circle"
+            src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            alt="">
+          <p class="text-light user-name m-0">User Name</p>
+        </div>
+      </header>
+      <main class="mt-4">
+        <div class="row">
+          <div class="col-lg-3 left-box">
+            <div class="d-flex align-items-start">
+              <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill"
+                  data-bs-target="#v-home" type="button" role="tab" aria-controls="v-pills-home"
+                  aria-selected="true">
+                  <span>Masalalar to'plami</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-9 right-box mt-md-3 mt-lg-0">
+            <div class="row">
+              <div class="tab-content col-lg-5" id="v-pills-tabContent">
+                <div class="tab-pane fade show active home-text" id="v-home" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                  <p>Siz bu yerda dasturlashga oid masalalar ishlash orqali o'zingizni sinashingiz mumkin!</p>
+                  <p class="text-warning">Boshlash uchun masalardan birini tanlang!</p>
+                </div>
+              </div>
+              <div class="col-lg-7">
+                <div class="editor">
+                  <div class="gutter">
+                    <span></span>
+                  </div>
+                  <textarea name="" id="answer" rows="5"></textarea>
+                </div>
+                <button class="btn float-end mt-4" onclick="submit()">Topshirish</button>
+              </div>
+              <div class="col-lg-12 mt-4">
+                <h4 class="text-white">Natijalar <span id="final-result"></span></h4>
+                <table class="table table-hover text-white table-responsive" id="result-table">
+                  <thead>
+                    <tr>
+                      <td class="td-bottom">Topshirilgan vaqt</td>
+                      <td class="td-bottom">Test</td>
+                      <td class="td-bottom">Kutilgan natija</td>
+                      <td class="td-bottom">Sizning javobingiz</td>
+                      <td class="td-bottom">Natija</td>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="./js/database.js"></script>
+  <script src="./js/main.js"></script>
+  <script>
+    const input = document.querySelector('textarea');
+    const gutter = document.querySelector('.gutter');
+    let val = input.value;
+    let numOfLines = 1;
+
+    function update(e) {
+      val = input.value;
+
+      let lineBreaks = val.match(/\n/gi) || [];
+      let numOfSpans = gutter.childElementCount;
+      numOfLines = lineBreaks.length ? lineBreaks.length + 1 : 1;
+
+      gutter.innerHTML = ""
+      for (var i = 0; i < numOfLines; i++) {
+        var el = document.createElement('span');
+        el.innerHTML = i + 1;
+        gutter.appendChild(el);
+      }
+    }
+
+    input.addEventListener('input', update);
+  </script>
+  <!-- <i class="fa-regular fa-circle-check"></i> -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
