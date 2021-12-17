@@ -21,11 +21,11 @@ for (let key in questions){
 }
 
 function changeEditorContent(){
-  let parametrs = ['value', 'str', 'str'];
   let question_id = document.getElementsByClassName('active')[0].innerText.slice(-1);
-  console.log(question_id)
+  let func = database.questions[question_id].fun_name;
+  question_id = parseInt(question_id);
   let editor = document.getElementById('answer');
-  editor.value = `function myFunction (${parametrs[parseInt(question_id) - 1]}) {
+  editor.value = `function ${func} {
 
 }`
 
