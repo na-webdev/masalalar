@@ -33,20 +33,11 @@ function changeEditorContent(){
 
 
 function submit() {
-  let check = [
-    [12, 4, 5],
-    ['Bob', 'Alice', 'X'],
-    ['Hello', 'ab', 'Hi'],
-  ]
-  let answers = [
-    [true, false, true],
-    ['Hello Bob!', 'Hello Alice!', 'Hello X!'],
-    ['lololo', 'ababab', 'HiHiHi'],
-  ]
+  let check = database.check
+  let answers = database.answers
   let question_title = document.getElementsByClassName('active')[0]
   let question_id = question_title.innerText.slice(-1);
   let ans = document.getElementById('answer').value;
-  question_id = parseInt(question_id) - 1;
   let exec = document.getElementById('result-table');
   let tr = document.createElement('tr')
   let td = document.createElement('td');
@@ -57,13 +48,16 @@ function submit() {
   let true_answers = 0;
   for (let i = 0; i < check[question_id].length; i++){
     let time = new Date();
-    let result = eval(ans + `myFunction('${check[question_id][i]}'.valueOf())`)
+    let func = questions[question_id].fun_name;
+    let func_name = func.slice(0, func.indexOf(' '));
+    let result = eval(ans + `${func_name}('${check[question_id][i]}'.valueOf())`)
     let tr = document.createElement('tr')
     tr.innerHTML = `
     <td>${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}</td>
     <td>myFunction(${check[question_id][i]})</td>
     <td class="text-primary">${answers[question_id][i]}</td>
     <td>${result}</td>`
+    console.log(tr.innerHTML)
     if (result == answers[question_id][i]) {
       tr.innerHTML += `<td class="text-success"><i class="fa-solid fa-circle-check"></i></td>`;
       true_answers++;

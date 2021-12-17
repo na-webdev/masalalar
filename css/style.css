@@ -82,7 +82,7 @@ body {
         border-radius: 10px 0 0 10px;
         display: flex;
         flex-flow: column wrap;
-        padding: 15px; }
+        padding: 5px; }
         .wrapper .right-box .editor .gutter span {
           padding: 0.5rem;
           color: #62a9b9; }
@@ -116,5 +116,18 @@ body {
         padding: 20px 10px; }
       .wrapper .right-box .table .td-bottom {
         border-bottom: 1px solid white; }
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    padding-left: 10px !important;
+    padding-right: 10px !important; }
+
+  .right-box {
+    padding-left: 18px !important;
+    padding-right: 18px !important; }
+
+  .left-box, .row {
+    padding-left: 5px !important;
+    padding-right: 5px !important; } }
 
 /*# sourceMappingURL=style.css.map */
