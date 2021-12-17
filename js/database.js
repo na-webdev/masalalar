@@ -31,7 +31,16 @@ let database = {
         '2': "firstLast6([13, 6, 1, 2, 3]) → false"
       },
       fun_name: 'firstLast6 (arr)'
+    },
+    '5': {
+      text: "Butun sonlar massivi berilgan bo'lsa, agar 6 soni massivda birinchi yoki oxirgi element sifatida ko'rinsa, true qiymatini qaytaring. Massiv uzunligi 1 yoki undan ortiq bo'ladi.",
+      examples: {
+        '1': "firstLast6([1, 2, 6]) → true",
+        '2': "firstLast6([13, 6, 1, 2, 3]) → false"
+      },
+      fun_name: 'firstLast6 (arr)'
     }
+
   },
   check: {
     '1': [12, 4, 5],

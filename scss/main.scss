@@ -30,10 +30,10 @@
 }
 
 body {
-  background-image: linear-gradient(to right top, #232337, #2e305b, #393c81, #4449a8, #5255d1);
+  background-color: #1F1F2B;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .wrapper {
